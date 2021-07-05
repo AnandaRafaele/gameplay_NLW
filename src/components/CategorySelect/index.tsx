@@ -1,9 +1,10 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import { categories } from "../../utils/categories";
-import { Category } from "../Category";
 
 import { styles } from "./styles";
+import { categories } from "../../utils/categories";
+
+import { Category } from "../Category";
 
 type Props = {
   categorySelected: string;
@@ -17,8 +18,9 @@ export const CategorySelect: React.FC<Props> = ({
   return (
     <ScrollView
       horizontal
+      style={styles.container}
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={styles.container}
+      contentContainerStyle={{ paddingRight: 40 }}
     >
       {categories.map((category) => (
         <Category
