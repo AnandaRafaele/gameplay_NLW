@@ -5,7 +5,7 @@ import { styles } from "./styles";
 
 import { Avatar } from "../Avatar";
 
-const Profile: React.FC = () => {
+export const Profile: React.FC = () => {
   return (
     <View style={styles.container}>
       <Avatar urlImage="https://github.com/AnandaRafaele.png" />
@@ -19,5 +19,3 @@ const Profile: React.FC = () => {
     </View>
   );
 };
-
-export default Profile;

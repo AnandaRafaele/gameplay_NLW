@@ -1,7 +1,7 @@
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { theme } from "../../global/styles/theme";
-import { Image, View } from "react-native";
+import { Image } from "react-native";
 
 import { styles } from "./styles";
 

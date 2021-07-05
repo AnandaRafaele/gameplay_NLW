@@ -5,7 +5,9 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
 
-const ButtonAdd: React.FC<RectButtonProps> = ({ ...rest }: RectButtonProps) => {
+export const ButtonAdd: React.FC<RectButtonProps> = ({
+  ...rest
+}: RectButtonProps) => {
   return (
     <RectButton style={styles.container} {...rest}>
       <MaterialCommunityIcons
@@ -16,5 +18,3 @@ const ButtonAdd: React.FC<RectButtonProps> = ({ ...rest }: RectButtonProps) => {
     </RectButton>
   );
 };
-
-export default ButtonAdd;
