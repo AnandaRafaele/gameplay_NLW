@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { View, Text } from "react-native";
 
 import { styles } from "./styles";
 
@@ -12,6 +12,7 @@ export const ListHeader: React.FC<Props> = ({ title, subtitle }: Props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
+
       <Text style={styles.subtitle}>{subtitle}</Text>
     </View>
   );

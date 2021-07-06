@@ -19,13 +19,10 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 7,
   },
-  checked: {
-    width: 10,
-    height: 10,
-    backgroundColor: theme.colors.primary,
-    alignSelf: "flex-end",
-    marginRight: 7,
-    borderRadius: 3,
+  title: {
+    fontFamily: theme.fonts.title500,
+    color: theme.colors.heading,
+    fontSize: 15,
   },
   check: {
     width: 12,
@@ -33,13 +30,16 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.secondary100,
     alignSelf: "flex-end",
     marginRight: 7,
-    borderBottomColor: theme.colors.secondary50,
+    borderColor: theme.colors.secondary50,
     borderWidth: 2,
     borderRadius: 3,
   },
-  title: {
-    fontFamily: theme.fonts.title500,
-    color: theme.colors.heading,
-    fontSize: 15,
+  checked: {
+    width: 10,
+    height: 10,
+    backgroundColor: theme.colors.primary,
+    alignSelf: "flex-end",
+    marginRight: 7,
+    borderRadius: 3,
   },
 });

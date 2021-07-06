@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     width: "100%",
     flexDirection: "row",
-    // alignSelf: "center",
+    alignSelf: "center",
   },
   content: {
     flex: 1,

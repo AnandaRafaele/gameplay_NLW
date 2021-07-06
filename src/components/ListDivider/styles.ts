@@ -1,12 +1,13 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
   container: {
-    width: "80%",
+    width: Dimensions.get("window").width - 108,
     height: 1,
     backgroundColor: theme.colors.secondary40,
-    marginVertical: 21,
+    marginBottom: 31,
+    marginTop: 2,
     alignSelf: "flex-end",
   },
 });

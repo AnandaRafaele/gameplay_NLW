@@ -1,19 +1,21 @@
 import React, { useState } from "react";
-import { FlatList, View } from "react-native";
-import { Appointment, AppointmentProps } from "../../components/Appointment";
-import { ButtonAdd } from "../../components/ButtonAdd";
+import { useNavigation } from "@react-navigation/native";
+import { View, FlatList } from "react-native";
+
 import { CategorySelect } from "../../components/CategorySelect";
+import { Appointment } from "../../components/Appointment";
 import { ListDivider } from "../../components/ListDivider";
 import { ListHeader } from "../../components/ListHeader";
-
+import { ButtonAdd } from "../../components/ButtonAdd";
 import { Profile } from "../../components/Profile";
 
 import { styles } from "./styles";
 
-export const Home: React.FC = () => {
+export function Home() {
   const [category, setCategory] = useState("");
+  const navigation = useNavigation();
 
-  const appointments: AppointmentProps[] = [
+  const appointments = [
     {
       id: "1",
       guild: {
@@ -30,7 +32,7 @@ export const Home: React.FC = () => {
     {
       id: "2",
       guild: {
-        id: "2",
+        id: "1",
         name: "Lendários",
         icon: null,
         owner: true,
@@ -42,36 +44,44 @@ export const Home: React.FC = () => {
     },
   ];
 
-  function handleCategorySelect(categoryId: string) {
+  function handleCategorySelect(categoryId: string): void {
     categoryId === category ? setCategory("") : setCategory(categoryId);
   }
 
-  /**
-   * ScrollView é indicado para quando você tem poucos elementos a serem renderizados, pois ele coloca todos os elementos em tela de uma vez.
-   * Flatlist é mais performatica e é indicada para quando você tem muitos elementos em uma lista, pois ela rendezira aos poucos e da prioridade aos elementos que estão visiveis em tela (no foco da scroll)
-   */
+  function handleAppointmentDetails(): void {
+    navigation.navigate("AppointmentDetails");
+  }
+
+  function handleAppointmentCreate(): void {
+    navigation.navigate("AppointmentCreate");
+  }
 
   return (
     <View>
       <View style={styles.header}>
         <Profile />
-        <ButtonAdd />
+        <ButtonAdd onPress={handleAppointmentCreate} />
       </View>
+
       <CategorySelect
         categorySelected={category}
         setCategory={handleCategorySelect}
       />
+
       <View style={styles.content}>
         <ListHeader title="Partidas agendadas" subtitle="Total 6" />
+
         <FlatList
-          keyExtractor={(item) => item.id}
           data={appointments}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <Appointment data={item} onPress={handleAppointmentDetails} />
+          )}
+          ItemSeparatorComponent={() => <ListDivider />}
           style={styles.matches}
           showsVerticalScrollIndicator={false}
-          ItemSeparatorComponent={() => <ListDivider />}
-          renderItem={({ item }) => <Appointment data={item} />}
         />
       </View>
     </View>
   );
-};
+}
